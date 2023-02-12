@@ -3,6 +3,7 @@
 function generateOutfit () {
   let outfit = "Outfit details here";
   console.log("Outfit details here");
+  return outfit;
 }
 
 // Get references to the #generate element
