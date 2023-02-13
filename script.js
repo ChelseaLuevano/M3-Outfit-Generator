@@ -11,17 +11,17 @@ function getRandom(arr) {
 }
 
 function generateOutfit () {
-  let outfit = "Outfit details here";
+  let outfit = "";
   let possibleChoices = [];
   console.log("Outfit details here");
 
 // Outfit Criteria
 
-  let userTop = confirm ("Do you want us to pick out a top?");
+  let userTop = confirm ("Do you want us to pick out a top? If yes, then click 'ok'; Otherwise, click 'cancel'.");
 
-  let userBottom = confirm ("Do you want us to pick out a bottom?");
+  let userBottom = confirm ("Do you want us to pick out a bottom? If yes, then click 'ok'; Otherwise, click 'cancel'.");
 
-  let userShoes = confirm ("Do you want us to pick out shoes?");
+  let userShoes = confirm ("Do you want us to pick out shoes? If yes, then click 'ok'; Otherwise, click 'cancel'.");
 
   let userAccessoryCount = prompt("How many accessories do you want to wear? Enter a number between 1 and 5. ");
 
@@ -32,27 +32,33 @@ function generateOutfit () {
 
   let outfitLength = userAccessoryCount += 3;
 
-  if (userTop){
-    let possibleChoices = [...possibleChoices, ...topOptions];
+  if (userTop) {
+    possibleChoices = [...possibleChoices, ...topOptions];
     outfit += getRandom(topOptions);
   }
 
-  if (userBottom){
-    let possibleChoices = [...possibleChoices, ...bottomOptions];
+  if (userBottom) {
+    possibleChoices = [...possibleChoices, ...bottomOptions];
     outfit += getRandom(bottomOptions);
   }
 
   if (userShoes){
-    let possibleChoices = [...possibleChoices, ...shoesOptions];
+    possibleChoices = [...possibleChoices, ...shoesOptions];
     outfit += getRandom(shoesOptions);
+  }
+  
+  if (userAccessoryCount){
+    possibleChoices = [...possibleChoices, ...accessoryOptions];
+    outfit += getRandom(accessoryOptions);
   }
 
   for (let i =outfit.length; i < outfitLength; i++) {
      outfit += getRandom(possibleChoices) 
   }   
-  
+
   console.log(userAccessoryCount)
 
+  // return outfit.split('').join(' ');
   return outfit;
 }
 
